@@ -30,6 +30,7 @@ int convert_specifier(char s, va_list args)
 			break;
 		case 'b':
 			char_count += _cnvbinary(va_arg(args, int));
+			break;
 		default:
 			break;
 	}
