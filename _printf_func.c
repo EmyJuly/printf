@@ -52,20 +52,17 @@ int check_specifier(char s)
  */
 int _printf(const char *format, ...)
 {
-	int i, len, char_count = 0;
+	int i, char_count = 0;
 	va_list args;
 
-	len = 0;
-	while (format[len] != '\0')
-		len++;
-
-	if (format == NULL || (len == 1 && format[0] == '%'))
+	if (format == NULL || (format[0] == '%'
+				&& (format[0] == '\0' || format[1] == ' ')))
 		return (-1);
 
 	va_start(args, format);
 
 	i = 0;
-	while (i < len)
+	while (format[i] != '\0')
 	{
 		if (format[i] == '%' && format[i + 1] == '\0')
 			break;
