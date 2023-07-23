@@ -24,6 +24,8 @@ int convert_specifier(char s, va_list args)
 		case '%':
 			char_count += _putchar('%');
 			break;
+		default:
+			break;
 	}
 	return (char_count);
 }
@@ -65,16 +67,14 @@ int _printf(const char *format, ...)
 	i = 0;
 	while (i < len)
 	{
-		if (format[i] == '%' && format[i + 1] != '\0')
+		if (format[i] == '%' && format[i + 1] == '\0')
+			break;
+		if (format[i] == '%' && format[i + 1] != '\0'
+				&& check_specifier(format[i + 1]))
 		{
-			if (check_specifier(format[i + 1]))
-			{
-				char_count += convert_specifier(format[i + 1], args);
-				i += 2;
-			}
+			char_count += convert_specifier(format[i + 1], args);
+			i += 2;
 		}
-		else if (format[i] == '%' && format[i + 1] == '\0')
-			i += 1;
 		else
 		{
 			char_count += _putchar(format[i]);
