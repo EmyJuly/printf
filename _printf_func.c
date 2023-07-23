@@ -3,7 +3,7 @@
 #include <stdarg.h>
 
 /**
- * convert_specifier - substitutes specifier to the corresponding arg
+ * convert_specifier - substitutes specifier with the corresponding arg
  * @s: specifier
  * @args: va_list arguments
  *
@@ -36,7 +36,10 @@ int convert_specifier(char s, va_list args)
  */
 int check_specifier(char s)
 {
-	return (s == 'c' || s == 's' || s == '%');
+	if (s == 'c' || s == 's' || s == '%')
+		return (1);
+	else
+		return (0);
 }
 
 /**
@@ -54,13 +57,13 @@ int _printf(const char *format, ...)
 	while (format[len] != '\0')
 		len++;
 
-	if (format == NULL || (len == 2 && format[0] == '%'))
+	if (format == NULL || (len == 1 && format[0] == '%'))
 		return (-1);
 
 	va_start(args, format);
 
 	i = 0;
-	while (format[i] != '\0')
+	while (i < len)
 	{
 		if (format[i] == '%' && format[i + 1] != '\0')
 		{
