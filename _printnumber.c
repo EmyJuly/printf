@@ -11,8 +11,7 @@ int _printnumber(int n)
 	int j, char_count = 0;
 	char arr[15];
 	unsigned int x;
-	char sign = '\0';
-
+	char sign;
 
 	if (n == 0)
 	{
@@ -23,12 +22,13 @@ int _printnumber(int n)
 
 	if (n < 0)
 	{
-		x = n * -1;
+		x = (n) * -1;
 		sign = '-';
 	}
 	else
 	{
 		x = n;
+		sign = '\0';
 	}
 
 	while (x > 0)
@@ -38,10 +38,10 @@ int _printnumber(int n)
 		char_count++;
 	}
 
-	arr[char_count + 1] = sign;
+	arr[char_count] = sign;
 	char_count += 1;
 
-	for (j = char_count ; j >= 0; j--)
+	for (j = char_count - 1 ; j >= 0; j--)
 		_putchar(arr[j]);
 
 	return (char_count);
