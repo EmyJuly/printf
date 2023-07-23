@@ -8,22 +8,32 @@
  */
 int _cnvbinary(int n)
 {
-	int i, leading_zero = 1, char_count = 0;
+	int bit_pos, bit_val, started = 0, char_count = 0;
 
-	for (i = 31; i >= 0; i--)
+	if (n < 0)
 	{
-		int bit = (n >> i) & 1;
-
-		if (bit)
-		{
-			_putchar('1');
-			leading_zero = 0;
-		}
-		else if (!leading_zero)
-		{
-			_putchar('0');
-		}
+		_putchar('-');
+		n = ~n + 1;
 		char_count += 1;
+	}
+
+	bit_pos = sizeof(n) * 8 - 1;
+	while (bit_pos >= 0)
+	{
+		bit_val = (n & (1 << bit_pos)) != 0;
+		if (bit_val || started)
+		{
+			_putchar('0' + bit_val);
+			char_count += 1;
+			started = 1;
+		}
+		bit_pos--;
+	}
+
+	if (char_count == 0)
+	{
+		_putchar('0');
+		char_count++;
 	}
 	return (char_count);
 }
