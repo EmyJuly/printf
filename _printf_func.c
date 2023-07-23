@@ -44,7 +44,7 @@ int convert_specifier(char s, va_list args)
  */
 int check_specifier(char s)
 {
-	if (s == 'c' || s == 's' || s == '%' || s == 'd' || s == 'i') 
+	if (s == 'c' || s == 's' || s == '%' || s == 'd' || s == 'i')
 		return (1);
 	else
 		return (0);

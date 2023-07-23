@@ -8,8 +8,11 @@
  */
 int _printnumber(int n)
 {
-	int digit, i, j, char_count = 0, is_negative = 0;
-	char a[15];
+	int j, char_count = 0;
+	char arr[15];
+	unsigned int x;
+	char sign = '\0';
+
 
 	if (n == 0)
 	{
@@ -18,31 +21,28 @@ int _printnumber(int n)
 		return (char_count);
 	}
 	
-	
 	if (n < 0)
 	{
-		n = -n;
-		is_negative++;
+		x = n * -1;
+		sign = '-';
+	}
+	else
+	{
+		x = n;
 	}
 
-	i = 0;
-	while (n != 0)
+	while (x > 0)
 	{
-		digit = n % 10;
-		a[char_count] = digit + '0';
-		n /= 10;
-		i++;
+		arr[char_count] = (x % 10) + '0';
+		x /= 10;
 		char_count++;
 	}
 
-	if (is_negative == 1)
-	{
-		_putchar('-');
-		 char_count++;
-	}
-
-	for (j = i - 1; j >= 0; j--)
-		_putchar(a[j]);
+	arr[char_count + 1] = sign;
+	char_count += 1;
+	
+	for (j = char_count ; j >= 0; j--)
+		_putchar(arr[j]);
 
 	return (char_count);
 }
