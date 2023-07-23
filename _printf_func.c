@@ -25,6 +25,8 @@ int convert_specifier(char s, va_list args)
 			char_count += _putchar('%');
 			break;
 		case 'd':
+			char_count += _printnumber(va_arg(args, int));
+			break;
 		case 'i':
 			char_count += _printnumber(va_arg(args, int));
 			break;
