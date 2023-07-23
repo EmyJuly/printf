@@ -24,6 +24,10 @@ int convert_specifier(char s, va_list args)
 		case '%':
 			char_count += _putchar('%');
 			break;
+		case 'd':
+		case 'i':
+			char_count += _printnumber(va_arg(args, int));
+			break;
 		default:
 			break;
 	}
@@ -38,7 +42,7 @@ int convert_specifier(char s, va_list args)
  */
 int check_specifier(char s)
 {
-	if (s == 'c' || s == 's' || s == '%')
+	if (s == 'c' || s == 's' || s == '%' || s == 'd' || s == 'i') 
 		return (1);
 	else
 		return (0);
