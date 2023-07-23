@@ -20,7 +20,7 @@ int _printnumber(int n)
 		char_count++;
 		return (char_count);
 	}
-	
+
 	if (n < 0)
 	{
 		x = n * -1;
@@ -40,7 +40,7 @@ int _printnumber(int n)
 
 	arr[char_count + 1] = sign;
 	char_count += 1;
-	
+
 	for (j = char_count ; j >= 0; j--)
 		_putchar(arr[j]);
 
