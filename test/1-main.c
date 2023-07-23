@@ -2,15 +2,21 @@
 #include <stdio.h>
 #include <limits.h>
 
-int main() {
+/**
+ * main - Entry point
+ *
+ * Return: Always 0
+ */
+
+int main(void)
+{
 	int len;
 	int len2;
+
 	len = _printf("Let's try to printf a simple sentence.\n");
 	len2 = printf("Let's try to printf a simple sentence.\n");
 	_printf("Length:[%d, %i]\n", len, len);
 	printf("Length:[%d, %i]\n", len2, len2);
-
-	printf("--------------------------------\n");
 
 	printf("%d\n", 65176);
 	_printf("%d\n", 65176);
@@ -28,10 +34,7 @@ int main() {
 	_printf("Maximum value of int: %d\n", INT_MAX);
 	printf("Minimum value of int: %d\n", INT_MIN);
 	_printf("Minimum value of int: %d\n", INT_MIN);
-
-
 	printf("--------------------------------\n");
-
 	printf("%i\n", 65176);
 	_printf("%i\n", 65176);
 	printf("%i\n", 0);
