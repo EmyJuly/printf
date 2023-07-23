@@ -29,7 +29,7 @@ int convert_specifier(char s, va_list args)
 			char_count += _printnumber(va_arg(args, int));
 			break;
 		case 'b':
-			char_count += _cnvbinary(va_arg(args, int));
+			char_count += _cnvbinary(va_arg(args, unsigned int));
 			break;
 		default:
 			break;
