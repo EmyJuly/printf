@@ -8,10 +8,9 @@
  */
 int _printnumber(int n)
 {
-	int j, char_count = 0;
+	int j, char_count = 0, negative = 0;
 	char arr[15];
 	unsigned int x;
-	char sign;
 
 	if (n == 0)
 	{
@@ -22,13 +21,12 @@ int _printnumber(int n)
 
 	if (n < 0)
 	{
-		x = (n) * -1;
-		sign = '-';
+		x = -(n);
+		negative = 1;
 	}
 	else
 	{
 		x = n;
-		sign = '\0';
 	}
 
 	while (x > 0)
@@ -38,8 +36,13 @@ int _printnumber(int n)
 		char_count++;
 	}
 
-	arr[char_count] = sign;
-	char_count += 1;
+	if (negative == 1)
+	{
+		arr[char_count] = '-';
+		char_count += 1;
+	}
+
+	arr[char_count] = '\0';
 
 	for (j = char_count - 1 ; j >= 0; j--)
 		_putchar(arr[j]);
