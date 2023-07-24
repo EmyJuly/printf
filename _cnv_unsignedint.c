@@ -1,8 +1,8 @@
 #include "main.h"
 
 /**
- *  _cnv_unsignedint - ..
- * @n: ..
+ * _cnv_unsignedint - print an unsigned number
+ * @n: number to print
  *
  * Return: number of characters printed
  */
