@@ -6,7 +6,7 @@
  *
  * Return: number of characters printed
  */
-int _printnumber(int n)
+int _cnv_signedint(int n)
 {
 	int j, char_count = 0, negative = 0;
 	char arr[15];

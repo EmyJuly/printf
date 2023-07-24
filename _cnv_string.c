@@ -7,7 +7,7 @@
  *
  * Return: number of characters printed
  */
-int _puts(char *str)
+int _cnv_string(char *str)
 {
 	int i;
 
