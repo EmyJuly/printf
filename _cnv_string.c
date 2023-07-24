@@ -9,13 +9,13 @@
  */
 int _cnv_string(char *str)
 {
-	int i;
+	int char_count;
 
 	if (str == NULL)
 		str = "(null)";
 
-	for (i = 0; str[i] != '\0'; i++)
-		_putchar(str[i]);
+	for (char_count = 0; str[char_count] != '\0'; char_count++)
+		_putchar(str[char_count]);
 
-	return (i);
+	return (char_count);
 }
