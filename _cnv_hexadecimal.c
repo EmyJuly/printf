@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
- * _cnv_hexadecimal - func
- * @n: ..
- * @h: ..
+ * _cnv_hexadecimal - converts unsigned int to hexa
+ * @n: number to convert
+ * @h: flag
  *
  * Return: number of characters printed
  */
