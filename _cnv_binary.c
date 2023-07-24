@@ -2,7 +2,7 @@
 #include <limits.h>
 
 /**
- * _cnvbinary - converts an unsigned int to binary
+ * _cnv_binary - converts an unsigned int to binary
  * @n: number to convert
  *
  * Return: numnber of characters printed

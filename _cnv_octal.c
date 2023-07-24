@@ -1,10 +1,10 @@
 #include "main.h"
 
-/*
- * _cnv_octal - ..
+/**
+ * _cnv_octal - func
  * @n: ..
  *
- * Return: ..
+ * Return: number of characters printed
  */
 int _cnv_octal(unsigned int n)
 {

@@ -2,7 +2,7 @@
 #include <stddef.h>
 
 /**
- * _puts - prints a string
+ * _cnv_string - prints a string
  * @str: string
  *
  * Return: number of characters printed

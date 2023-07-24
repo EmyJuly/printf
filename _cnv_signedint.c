@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _printnumber - prints a number
+ * _cnv_signedint - prints a number
  * @n: number
  *
  * Return: number of characters printed

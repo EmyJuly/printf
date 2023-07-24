@@ -1,18 +1,18 @@
 #include "main.h"
 
 /**
- * _cnv_hexadecimal - ..
+ * _cnv_hexadecimal - func
  * @n: ..
  * @h: ..
  *
- * Return: ..
+ * Return: number of characters printed
  */
 int _cnv_hexadecimal(unsigned int n, int h)
 {
 	int j, char_count = 0;
 	char *hex_digits;
 	char arr[15];
-	
+
 	if (h)
 		hex_digits = "0123456789abcdef";
 	else
