@@ -19,17 +19,29 @@ int convert_specifier(char s, va_list args)
 			char_count += _putchar(va_arg(args, int));
 			break;
 		case 's':
-			char_count += _puts(va_arg(args, char *));
+			char_count += _cnv_string(va_arg(args, char *));
 			break;
 		case '%':
 			char_count += _putchar('%');
 			break;
 		case 'd':
 		case 'i':
-			char_count += _printnumber(va_arg(args, int));
+			char_count += _cnv_signedint(va_arg(args, int));
 			break;
 		case 'b':
-			char_count += _cnvbinary(va_arg(args, unsigned int));
+			char_count += _cnv_binary(va_arg(args, unsigned int));
+			break;
+		case 'u':
+			char_count += _cnv_unsignedint(va_arg(args, unsigned int));
+			break;
+		case 'o':
+			char_count += _cnv_octal(va_arg(args, unsigned int));
+			break;
+		case 'x':
+			char_count += _cnv_hexadecimal(va_arg(args, unsigned int), 1);
+			break;
+		case 'X':
+			char_count += _cnv_hexadecimal(va_arg(args, unsigned int), 0);
 			break;
 		default:
 			break;
@@ -46,7 +58,7 @@ int convert_specifier(char s, va_list args)
 int check_specifier(char s)
 {
 	if (s == 'c' || s == 's' || s == '%' || s == 'd' || s == 'i'
-			|| s == 'b')
+			|| s == 'b' || s == 'u' || s == 'o' || s == 'x' || s == 'X')
 		return (1);
 	else
 		return (0);
