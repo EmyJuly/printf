@@ -11,6 +11,13 @@ int _cnv_octal(unsigned int n)
 	int j, char_count = 0;
 	char arr[15];
 
+	if (n == 0)
+	{
+		_putchar('0');
+		char_count++;
+		return (char_count);
+	}
+
 	while (n > 0)
 	{
 		arr[char_count] = (n % 8) + '0';
