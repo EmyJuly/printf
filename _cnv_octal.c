@@ -1,8 +1,8 @@
 #include "main.h"
 
 /**
- * _cnv_octal - func
- * @n: ..
+ * _cnv_octal - converts an unsigned int to octal
+ * @n: number to convert
  *
  * Return: number of characters printed
  */
