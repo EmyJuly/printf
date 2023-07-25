@@ -6,10 +6,10 @@
  * @flags: flag
  * Return: number of characters printed
  */
-int _cnv_signedint(va_list args, char flags)
+int _cnv_signedint(va_list args, __attribute__ ((unused)) char flags)
 {
 	int n = va_arg(args, int);
-	int i, j, char_count = 0, negative = 0;
+	int j, char_count = 0, negative = 0;
 	char arr[15];
 	unsigned int x;
 
@@ -19,6 +19,7 @@ int _cnv_signedint(va_list args, char flags)
 		char_count++;
 		return (char_count);
 	}
+
 	if (n < 0)
 	{
 		x = -(n);
@@ -26,12 +27,14 @@ int _cnv_signedint(va_list args, char flags)
 	}
 	else
 		x = n;
+
 	while (x > 0)
 	{
 		arr[char_count] = (x % 10) + '0';
 		x /= 10;
 		char_count++;
 	}
+
 	if (negative == 1)
 	{
 		arr[char_count] = '-';
@@ -39,16 +42,8 @@ int _cnv_signedint(va_list args, char flags)
 	}
 
 	arr[char_count] = '\0';
-	i = char_count;
-	if (flags == '+') 
-	{	
-		char_count += _putchar('+');
-	}
-	else if (flags == ' ')
-	{
-		char_count += _putchar(' ');
-	}
-	for (j = i - 1 ; j >= 0; j--)
+
+	for (j = char_count - 1 ; j >= 0; j--)
 		_putchar(arr[j]);
 
 	return (char_count);

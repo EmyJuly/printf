@@ -6,7 +6,7 @@
  * @flags: flag
  * Return: number of characters printed
  */
-int _cnv_string(va_list args, char flags)
+int _cnv_string(va_list args, __attribute__ ((unused)) char flags)
 {
 	char *str = va_arg(args, char *);
 	int char_count, asciicode, i, x = 0;

@@ -6,10 +6,9 @@
  * @flags: flag
  * Return: number of characters printed
  */
-int _cnv_reverse(va_list args, char flags)
+int _cnv_reverse(va_list args, __attribute__ ((unused)) char flags)
 {
 	char *str = va_arg(args, char *);
-	(void)flags;
 	int char_count, j = 0;
 
 	if (str == NULL)
