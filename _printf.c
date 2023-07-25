@@ -1,6 +1,4 @@
 #include "main.h"
-#include <stddef.h>
-#include <stdarg.h>
 
 /**
  * convert_specifier - substitutes specifier with the corresponding arg
