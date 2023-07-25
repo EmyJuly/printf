@@ -19,7 +19,7 @@ int convert_specifier(char s, va_list args)
 			char_count += _putchar(va_arg(args, int));
 			break;
 		case 's':
-			char_count += _cnv_string(va_arg(args, char *));
+			char_count += _cnv_printstr(va_arg(args, char *));
 			break;
 		case '%':
 			char_count += _putchar('%');
@@ -44,9 +44,10 @@ int convert_specifier(char s, va_list args)
 			char_count += _cnv_hexadecimal(va_arg(args, unsigned int), 0);
 			break;
 		case 'S':
-			char_count += _cnv_str(va_arg(args, char *));
+			char_count += _cnv_string(va_arg(args, char *));
 			break;
-		default:
+		case 'p':
+			char_count += _cnv_pointer(va_arg(args, void *));
 			break;
 	}
 	return (char_count);
@@ -62,7 +63,7 @@ int check_specifier(char s)
 {
 	if (s == 'c' || s == 's' || s == '%' || s == 'd' || s == 'i'
 			|| s == 'b' || s == 'u' || s == 'o' || s == 'x' || s == 'X'
-			|| s == 'S')
+			|| s == 'S' || s == 'p')
 		return (1);
 	else
 		return (0);
