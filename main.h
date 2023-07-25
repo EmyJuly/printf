@@ -30,6 +30,7 @@ int _cnv_heXadecimal(va_list args);
 int _cnv_string(va_list args);
 int _cnv_pointer(va_list args);
 int _cnv_reverse(va_list args);
+int _cnv_rot13ed(va_list args);
 int _printf(const char *format, ...);
 
 #endif
