@@ -23,22 +23,22 @@ int _cnv_str(char *str)
 		{
 			char_count += _cnv_string("\\x");
 			do {
-                		arr[x++] = hex_digits[asciicode % 16];
-                		asciicode /= 16;
-            		} while (asciicode != 0);
+				arr[x++] = hex_digits[asciicode % 16];
+				asciicode /= 16;
+			} while (asciicode != 0);
 			if (x == 1)
 			{
 				_putchar('0');
 				char_count++;
 			}
-			while (x > 0) 
+			while (x > 0)
 			{
-                		_putchar(arr[--x]);
-                		char_count++;
-            		}	
+				_putchar(arr[--x]);
+				char_count++;
+			}
 		}
 		else
-            		char_count += _putchar(str[i]);
-        }
+			char_count += _putchar(str[i]);
+	}
 	return (char_count);
 }
