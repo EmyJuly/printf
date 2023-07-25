@@ -2,7 +2,10 @@
 #include <stddef.h>
 
 /**
+ * _cnv_pointer - func
+ * @p: bbb
  *
+ * Return: number of characters printed
  */
 int _cnv_pointer(void *p)
 {
@@ -10,6 +13,7 @@ int _cnv_pointer(void *p)
 	char *hex_digits;
 	char arr[64];
 	size_t pointer;
+
 
 	hex_digits = "0123456789abcdef";
 	pointer = (size_t) p;
@@ -19,6 +23,8 @@ int _cnv_pointer(void *p)
 		pointer /= 16;
 	} while (pointer != 0);
 
+	arr[char_count++] = 'x';
+	arr[char_count++] = '0';
 	for (j = char_count - 1 ; j >= 0; j--)
 		_putchar(arr[j]);
 
