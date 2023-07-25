@@ -7,6 +7,7 @@
 #include <unistd.h>
 
 typedef int (*specifier_function)(va_list);
+
 /**
  * struct specifier_mapping - maps specifier
  * @specifier: specifier
