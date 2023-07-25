@@ -26,9 +26,7 @@ int _cnv_signedint(va_list args)
 		negative = 1;
 	}
 	else
-	{
 		x = n;
-	}
 
 	while (x > 0)
 	{

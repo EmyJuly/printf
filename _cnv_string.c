@@ -8,7 +8,7 @@
  */
 int _cnv_string(va_list args)
 {
-	char *str = va_arg(args, char *);	
+	char *str = va_arg(args, char *);
 	int char_count, asciicode, i, x = 0;
 	char hex_digits[] = "0123456789ABCDEF";
 	char arr[15];

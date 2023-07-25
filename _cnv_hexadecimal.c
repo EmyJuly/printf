@@ -14,7 +14,7 @@ int _cnv_hexadecimal(va_list args)
 	char arr[15];
 
 	hex_digits = "0123456789abcdef";
-	
+
 	do {
 		arr[char_count++] = hex_digits[n % 16];
 		n /= 16;

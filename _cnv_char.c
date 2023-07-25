@@ -8,9 +8,8 @@
  */
 int _cnv_char(va_list args)
 {
-    char c = va_arg(args, int);
+	char c = va_arg(args, int);
+	int char_count = _putchar(c);
 
-    int char_count = _putchar(c);
-
-    return char_count;
+	return (char_count);
 }
