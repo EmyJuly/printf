@@ -14,6 +14,8 @@ int _cnv_pointer(void *p)
 	char arr[64];
 	size_t pointer;
 
+	if (p == NULL)
+		return(_cnv_printstr("(nil)"));
 
 	hex_digits = "0123456789abcdef";
 	pointer = (size_t) p;
