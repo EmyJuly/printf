@@ -11,8 +11,9 @@ int main(void)
 {
 	void *addr;
 	void *intPtr;
+
 	addr = (void *)0x7ffe637541f0;
-   	intPtr	= (void *)NULL;
+	intPtr	= (void *)NULL;
 
 	printf("Address:[%p]\n", addr);
 	_printf("Address:[%p]\n", addr);

@@ -15,10 +15,10 @@ int _cnv_rot13ed(va_list args)
 	char converted_char;
 
 	for (i = 0; str[i] != '\0'; i++)
-	{	
+	{
 		converted_char = str[i];
 		for (j = 0; j < 52; j++)
-		{	
+		{
 			if (str[i] == s1[j])
 			{
 				converted_char = s2[j];
@@ -27,6 +27,6 @@ int _cnv_rot13ed(va_list args)
 		}
 		_putchar(converted_char);
 		char_count++;
-	}		
+	}	
 	return (char_count);
 }
