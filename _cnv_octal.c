@@ -2,12 +2,13 @@
 
 /**
  * _cnv_octal - converts an unsigned int to octal
- * @n: number to convert
+ * @args: va_list arguments
  *
  * Return: number of characters printed
  */
-int _cnv_octal(unsigned int n)
+int _cnv_octal(va_list args)
 {
+	unsigned int n = va_arg(args, unsigned int);
 	int j, char_count = 0;
 	char arr[15];
 

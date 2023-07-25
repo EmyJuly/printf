@@ -1,14 +1,14 @@
 #include "main.h"
-#include <limits.h>
 
 /**
  * _cnv_binary - converts an unsigned int to binary
- * @n: number to convert
+ * @args: va_list arguments
  *
  * Return: numnber of characters printed
  */
-int _cnv_binary(unsigned int n)
+int _cnv_binary(va_list args)
 {
+	unsigned int n = va_arg(args, unsigned int);
 	int char_count = 0;
 	unsigned int r = 1, i, j, sum = 0;
 	unsigned int a[32];

@@ -2,12 +2,13 @@
 
 /**
  * _cnv_signedint - prints a number
- * @n: number
+ * @args: va_list arguments
  *
  * Return: number of characters printed
  */
-int _cnv_signedint(int n)
+int _cnv_signedint(va_list args)
 {
+	int n = va_arg(args, int);
 	int j, char_count = 0, negative = 0;
 	char arr[15];
 	unsigned int x;

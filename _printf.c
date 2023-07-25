@@ -11,44 +11,30 @@
  */
 int convert_specifier(char s, va_list args)
 {
-	int char_count = 0;
+	int char_count = 0, i, num_specifiers;
 
-	switch (s)
+	const specifier_mapping specifiers[] = {
+		{'c', _cnv_char},
+		{'s', _cnv_printstr},
+		{'d', _cnv_signedint},
+		{'i', _cnv_signedint},
+		{'b', _cnv_binary},
+		{'u', _cnv_unsignedint},
+		{'o', _cnv_octal},
+		{'x', _cnv_hexadecimal},
+		{'X', _cnv_heXadecimal},
+		{'S', _cnv_string},
+		{'p', _cnv_pointer},
+	};
+
+	num_specifiers = sizeof(specifiers) / sizeof(specifiers[0]);
+	for (i = 0; i < num_specifiers; i++)
 	{
-		case 'c':
-			char_count += _putchar(va_arg(args, int));
+		if (s == specifiers[i].specifier)
+		{
+			char_count += specifiers[i].function(args);
 			break;
-		case 's':
-			char_count += _cnv_printstr(va_arg(args, char *));
-			break;
-		case '%':
-			char_count += _putchar('%');
-			break;
-		case 'd':
-		case 'i':
-			char_count += _cnv_signedint(va_arg(args, int));
-			break;
-		case 'b':
-			char_count += _cnv_binary(va_arg(args, unsigned int));
-			break;
-		case 'u':
-			char_count += _cnv_unsignedint(va_arg(args, unsigned int));
-			break;
-		case 'o':
-			char_count += _cnv_octal(va_arg(args, unsigned int));
-			break;
-		case 'x':
-			char_count += _cnv_hexadecimal(va_arg(args, unsigned int), 1);
-			break;
-		case 'X':
-			char_count += _cnv_hexadecimal(va_arg(args, unsigned int), 0);
-			break;
-		case 'S':
-			char_count += _cnv_string(va_arg(args, char *));
-			break;
-		case 'p':
-			char_count += _cnv_pointer(va_arg(args, void *));
-			break;
+		}
 	}
 	return (char_count);
 }
@@ -61,7 +47,7 @@ int convert_specifier(char s, va_list args)
  */
 int check_specifier(char s)
 {
-	if (s == 'c' || s == 's' || s == '%' || s == 'd' || s == 'i'
+	if (s == 'c' || s == 's' || s == 'd' || s == 'i'
 			|| s == 'b' || s == 'u' || s == 'o' || s == 'x' || s == 'X'
 			|| s == 'S' || s == 'p')
 		return (1);
@@ -91,7 +77,12 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%' && format[i + 1] == '\0')
 			break;
-		if (format[i] == '%' && format[i + 1] != '\0'
+		if (format[i] == '%' && format[i + 1] == '%')
+		{
+			char_count += _putchar('%');
+			i += 2;
+		}
+		else if (format[i] == '%' && format[i + 1] != '\0'
 				&& check_specifier(format[i + 1]))
 		{
 			char_count += convert_specifier(format[i + 1], args);

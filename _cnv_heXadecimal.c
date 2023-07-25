@@ -1,32 +1,24 @@
 #include "main.h"
 
 /**
- * _cnv_unsignedint - print an unsigned number
+ * _cnv_hexadecimal - converts unsigned int to hexa
  * @args: va_list arguments
  *
  * Return: number of characters printed
  */
-int _cnv_unsignedint(va_list args)
+int _cnv_heXadecimal(va_list args)
 {
 	unsigned int n = va_arg(args, unsigned int);
 	int j, char_count = 0;
+	char *hex_digits;
 	char arr[15];
 
-	if (n == 0)
-	{
-		_putchar('0');
-		char_count++;
-		return (char_count);
-	}
-
-	while (n > 0)
-	{
-		arr[char_count] = (n % 10) + '0';
-		n /= 10;
-		char_count++;
-	}
-
-	arr[char_count] = '\0';
+	hex_digits = "0123456789ABCDEF";
+	
+	do {
+		arr[char_count++] = hex_digits[n % 16];
+		n /= 16;
+	} while (n != 0);
 
 	for (j = char_count - 1 ; j >= 0; j--)
 		_putchar(arr[j]);

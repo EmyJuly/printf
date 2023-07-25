@@ -2,21 +2,19 @@
 
 /**
  * _cnv_hexadecimal - converts unsigned int to hexa
- * @n: number to convert
- * @h: flag
+ * @args: va_list arguments
  *
  * Return: number of characters printed
  */
-int _cnv_hexadecimal(unsigned int n, int h)
+int _cnv_hexadecimal(va_list args)
 {
+	unsigned int n = va_arg(args, unsigned int);
 	int j, char_count = 0;
 	char *hex_digits;
 	char arr[15];
 
-	if (h)
-		hex_digits = "0123456789abcdef";
-	else
-		hex_digits = "0123456789ABCDEF";
+	hex_digits = "0123456789abcdef";
+	
 	do {
 		arr[char_count++] = hex_digits[n % 16];
 		n /= 16;

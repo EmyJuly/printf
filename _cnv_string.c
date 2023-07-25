@@ -1,14 +1,14 @@
 #include "main.h"
-#include <stddef.h>
 
 /**
  * _cnv_string - converts non printable char
- * @str: string
+ * @args: va_list arguments
  *
  * Return: number of characters printed
  */
-int _cnv_string(char *str)
+int _cnv_string(va_list args)
 {
+	char *str = va_arg(args, char *);	
 	int char_count, asciicode, i, x = 0;
 	char hex_digits[] = "0123456789ABCDEF";
 	char arr[15];
@@ -21,7 +21,9 @@ int _cnv_string(char *str)
 		asciicode = (int)str[i];
 		if ((asciicode > 0 && asciicode < 32) || asciicode >= 127)
 		{
-			char_count += _cnv_string("\\x");
+			_putchar('\\');
+			_putchar('x');
+			char_count += 2;
 			do {
 				arr[x++] = hex_digits[asciicode % 16];
 				asciicode /= 16;
