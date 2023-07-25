@@ -27,6 +27,6 @@ int _cnv_rot13ed(va_list args)
 		}
 		_putchar(converted_char);
 		char_count++;
-	}	
+	}
 	return (char_count);
 }
