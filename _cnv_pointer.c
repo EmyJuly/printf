@@ -19,9 +19,6 @@ int _cnv_pointer(void *p)
 		pointer /= 16;
 	} while (pointer != 0);
 
-	_putchar('0');
-	_putchar('x');
-	char_count += 2;
 	for (j = char_count - 1 ; j >= 0; j--)
 		_putchar(arr[j]);
 
