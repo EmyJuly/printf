@@ -4,13 +4,14 @@
  * convert_specifier - substitutes specifier with the corresponding arg
  * @s: specifier
  * @args: va_list arguments
- *
+ * 
  * Return: number of characters printed
  */
 int convert_specifier(char s, va_list args)
 {
 	int char_count = 0, i, num_specifiers;
-
+	char flags = '\0';
+	
 	const specifier_mapping specifiers[] = {
 		{'c', _cnv_char},
 		{'s', _cnv_printstr},
@@ -26,12 +27,13 @@ int convert_specifier(char s, va_list args)
 		{'r', _cnv_reverse},
 		{'R', _cnv_rot13ed},
 	};
-
 	num_specifiers = sizeof(specifiers) / sizeof(specifiers[0]);
 	for (i = 0; i < num_specifiers; i++)
 	{
 		if (s == specifiers[i].specifier)
 		{
+			if (i > 1 && i < 8)
+				flags = va_arg(args, int);
 			char_count += specifiers[i].function(args);
 			break;
 		}

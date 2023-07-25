@@ -3,12 +3,13 @@
 /**
  * _cnv_reverse - reverses string
  * @args: va_list arguments
- *
+ * @flags: flag
  * Return: number of characters printed
  */
-int _cnv_reverse(va_list args)
+int _cnv_reverse(va_list args, char flags)
 {
 	char *str = va_arg(args, char *);
+	(void)flags;
 	int char_count, j = 0;
 
 	if (str == NULL)

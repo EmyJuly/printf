@@ -3,10 +3,10 @@
 /**
  * _cnv_printstr - prints a string
  * @args: va_list arguments
- *
+ * @flags: flag
  * Return: number of characters printed
  */
-int _cnv_printstr(va_list args)
+int _cnv_printstr(va_list args, char flags)
 {
 	char *str = va_arg(args, char *);
 	int char_count;

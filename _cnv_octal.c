@@ -3,10 +3,10 @@
 /**
  * _cnv_octal - converts an unsigned int to octal
  * @args: va_list arguments
- *
+ * @flags: flag
  * Return: number of characters printed
  */
-int _cnv_octal(va_list args)
+int _cnv_octal(va_list args, char flags)
 {
 	unsigned int n = va_arg(args, unsigned int);
 	int j, char_count = 0;

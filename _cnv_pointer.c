@@ -3,12 +3,13 @@
 /**
  * _cnv_pointer - func
  * @args: va_list arguments
- *
+ * @flags: flag
  * Return: number of characters printed
  */
-int _cnv_pointer(va_list args)
+int _cnv_pointer(va_list args, char flags)
 {
 	void *p = va_arg(args, void *);
+	(void)flags;
 	char s[] = "(nil)";
 	int i, j, char_count = 0;
 	char *hex_digits;

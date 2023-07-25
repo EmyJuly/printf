@@ -3,13 +3,14 @@
 /**
  * _cnv_unsignedint - print an unsigned number
  * @args: va_list arguments
- *
+ * @flags: flag
  * Return: number of characters printed
  */
-int _cnv_unsignedint(va_list args)
+int _cnv_unsignedint(va_list args, char flags)
 {
 	unsigned int n = va_arg(args, unsigned int);
 	int j, char_count = 0;
+	(void)flags;
 	char arr[15];
 
 	if (n == 0)

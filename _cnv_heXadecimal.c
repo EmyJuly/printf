@@ -3,12 +3,13 @@
 /**
  * _cnv_heXadecimal - converts unsigned int to hexa
  * @args: va_list arguments
- *
+ * @flags: flag
  * Return: number of characters printed
  */
-int _cnv_heXadecimal(va_list args)
+int _cnv_heXadecimal(va_list args, char flags)
 {
 	unsigned int n = va_arg(args, unsigned int);
+	(void)flags;
 	int j, char_count = 0;
 	char *hex_digits;
 	char arr[15];

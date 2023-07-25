@@ -3,12 +3,13 @@
 /**
  * _cnv_binary - converts an unsigned int to binary
  * @args: va_list arguments
- *
+ * @flags: flag
  * Return: numnber of characters printed
  */
-int _cnv_binary(va_list args)
+int _cnv_binary(va_list args, char flags)
 {
 	unsigned int n = va_arg(args, unsigned int);
+	(void)flags;
 	int char_count = 0;
 	unsigned int r = 1, i, j, sum = 0;
 	unsigned int a[32];
