@@ -25,6 +25,7 @@ int convert_specifier(char s, va_list args)
 		{'X', _cnv_heXadecimal},
 		{'S', _cnv_string},
 		{'p', _cnv_pointer},
+		{'r', _cnv_reverse},
 	};
 
 	num_specifiers = sizeof(specifiers) / sizeof(specifiers[0]);
@@ -49,7 +50,7 @@ int check_specifier(char s)
 {
 	if (s == 'c' || s == 's' || s == 'd' || s == 'i'
 			|| s == 'b' || s == 'u' || s == 'o' || s == 'x' || s == 'X'
-			|| s == 'S' || s == 'p')
+			|| s == 'S' || s == 'p' || s == 'r')
 		return (1);
 	else
 		return (0);
