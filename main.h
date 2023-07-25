@@ -9,7 +9,7 @@
 typedef int (*specifier_function)(va_list);
 /**
  * struct specifier_mapping - maps specifier
- * @specifier: ..
+ * @specifier: specifier
  * @function: ..
  */
 typedef struct specifier_mapping
