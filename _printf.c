@@ -72,28 +72,34 @@ int _printf(const char *format, ...)
 
 	va_start(args, format);
 
-	i = 0;
-	while (format[i] != '\0')
+	for (i = 0; format[i] != '\0'; i++)
 	{
-		if (format[i] == '%' && format[i + 1] == '\0')
-			break;
-		if (format[i] == '%' && format[i + 1] == '%')
+		if (format[i] == '%' && format[i + 1] != '\0')
 		{
-			char_count += _putchar('%');
-			i += 2;
-		}
-		else if (format[i] == '%' && format[i + 1] != '\0'
-				&& check_specifier(format[i + 1]))
-		{
-			char_count += convert_specifier(format[i + 1], args);
-			i += 2;
+			i++;
+			if (format[i] == '%')
+			{
+				_putchar('%');
+				char_count++;
+			}
+			else if (check_specifier(format[i]))
+			{
+				char_count += convert_specifier(format[i], args);
+			}
+			else
+			{
+				_putchar('%');
+				_putchar(format[i]);
+				char_count += 2;
+			}
 		}
 		else
 		{
-			char_count += _putchar(format[i]);
-			i += 1;
+			_putchar(format[i]);
+			char_count++;
 		}
 	}
+
 	va_end(args);
 	return (char_count);
 }
